@@ -1,16 +1,12 @@
 import { useState } from "react";
 import { TrashIcon } from "@heroicons/react/24/solid";
-import {
-  ArrowDownTrayIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import {
   Card,
   CardHeader,
   Typography,
   Button,
   CardBody,
-  // CardFooter,
   Avatar,
   IconButton,
   Tooltip,
@@ -94,7 +90,6 @@ function MyCart() {
                     }
                   }}
                 >
-                
                   {cartItems.length === 0 ? "Add to Item" : "Clear Cart"}
                 </Button>
               </div>
@@ -185,6 +180,11 @@ function MyCart() {
               </tbody>
             </table>
           </CardBody>
+          <div className="flex justify-end p-4">
+            <Button className="flex items-center gap-3" size="sl">
+              Proceed to Checkout
+            </Button>
+          </div>
         </>
       )}
     </Card>

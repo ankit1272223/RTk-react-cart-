@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MyCard from "../components/MyCard"; // Assuming MyCard is a reusable component
-
+import { Spinner } from "@material-tailwind/react";
 function ProductCard() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,9 +24,7 @@ function ProductCard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <p className="text-center text-xl font-bold text-blue-600 animate-pulse">
-        Loading products...
-      </p>
+     <Spinner className="h-16 w-16 text-gray-900/50" />;
     </div>
     );
   }

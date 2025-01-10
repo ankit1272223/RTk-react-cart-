@@ -3,14 +3,14 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <>
-      <header className="m-0 p-0">
+    <div className="min-h-screen bg-gray-100">
+      <header className="sticky top-0 z-50">
         <Nevbar />
       </header>
-      <main>
+      <main className="container mx-auto px-4">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 }
 
