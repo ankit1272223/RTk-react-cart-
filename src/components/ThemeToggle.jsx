@@ -10,8 +10,10 @@ const ThemeToggle = () => {
   // Sync the theme class with the root HTML element
   useEffect(() => {
     if (theme === "dark") {
+      document.documentElement.classList.remove("light");
       document.documentElement.classList.add("dark");
     } else {
+      document.documentElement.classList.add("light");
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
