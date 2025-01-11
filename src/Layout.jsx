@@ -1,6 +1,5 @@
 import Nevbar from "./components/Nevbar";
 import { Outlet } from "react-router-dom";
-
 function Layout() {
   return (
     <div className="min-h-screen bg-gray-100">

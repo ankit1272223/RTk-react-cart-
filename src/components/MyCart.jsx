@@ -187,7 +187,7 @@ function MyCart() {
           </div>
         </>
       )}
-    </Card>
+    </Card> 
   );
 }
 

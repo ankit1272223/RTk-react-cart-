@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import MyCard from "../components/MyCard"; // Assuming MyCard is a reusable component
 import { Spinner } from "@material-tailwind/react";
 function ProductCard() {

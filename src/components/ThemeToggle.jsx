@@ -1,46 +1,33 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Typography } from "@material-tailwind/react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../features/Theme/themeSlice";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import { useEffect } from "react";
 
-function ThemeToggle() {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+const ThemeToggle = () => {
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
 
-  // Apply the theme to the document
+  // Sync the theme class with the root HTML element
   useEffect(() => {
-    if (darkMode) {
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
     }
-  }, [darkMode]);
+  }, [theme]);
 
   return (
-    <div className="flex items-center gap-4">
-      <Switch
-        checked={darkMode}
-        onChange={() => setDarkMode(!darkMode)}
-        label={
-          <div className="flex items-center gap-2">
-            {darkMode ? (
-              <MoonIcon className="h-5 w-5 text-blue-gray-500" />
-            ) : (
-              <SunIcon className="h-5 w-5 text-yellow-500" />
-            )}
-            <Typography
-              color={darkMode ? "blue-gray" : "yellow"}
-              className="font-medium"
-            >
-              {darkMode ? "Dark Mode" : "Light Mode"}
-            </Typography>
-          </div>
-        }
-      />
-    </div>
+    <button
+      onClick={() => dispatch(toggleTheme())}
+      className="flex items-center justify-center p-2 transition bg-gray-200 rounded-full shadow-md dark:bg-gray-800"
+    >
+      {theme === "light" ? (
+        <MoonIcon className="h-5 w-5 text-blue-gray-500" />
+      ) : (
+        <SunIcon className="h-5 w-5 text-yellow-700" />
+      )}
+    </button>
   );
-}
+};
 
 export default ThemeToggle;
